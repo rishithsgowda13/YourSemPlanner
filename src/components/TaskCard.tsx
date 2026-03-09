@@ -20,13 +20,13 @@ export function TaskCard({ task, onComplete, onUpdate }: TaskCardProps) {
     const { toast } = useToast();
     const [loading, setLoading] = useState(false);
 
-    const priorityColors = {
+    const priorityColors: Record<Task['priority'], string> = {
         high: 'border-l-4 border-l-red-500 bg-red-900/20',
         medium: 'border-l-4 border-l-yellow-500 bg-yellow-900/20',
         low: 'border-l-4 border-l-green-500 bg-green-900/20',
     };
 
-    const priorityBadges = {
+    const priorityBadges: Record<Task['priority'], string> = {
         high: 'bg-red-900 text-red-200',
         medium: 'bg-yellow-900 text-yellow-200',
         low: 'bg-green-900 text-green-200',
