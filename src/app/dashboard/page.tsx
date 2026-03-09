@@ -39,9 +39,9 @@ export default function DashboardPage() {
 
         if (!error && data) {
             // Sort by priority: high, medium, low
-            const priorityOrder = { high: 0, medium: 1, low: 2 };
-            const sorted = data.sort(
-                (a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]
+            const priorityOrder: Record<Task['priority'], number> = { high: 0, medium: 1, low: 2 };
+            const sorted = [...data].sort(
+                (a: Task, b: Task) => priorityOrder[a.priority] - priorityOrder[b.priority]
             );
             setTasks(sorted);
         }
